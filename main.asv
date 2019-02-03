@@ -1,0 +1,19 @@
+clc
+clear
+close all
+PAR_DEFAULT_NPROC =  0;
+PAR_DEFAULT_TAU    = 0.25;
+PAR_DEFAULT_LAMBDA = 0.15;
+PAR_DEFAULT_THETA  = 0.3;
+PAR_DEFAULT_NSCALES =5;
+PAR_DEFAULT_ZFACTOR =0.5;
+PAR_DEFAULT_NWARPS = 5;
+PAR_DEFAULT_EPSILON = 0.01;
+width=0; 
+height=0; nchannels=0;
+nframes=0;
+useOracle = 'a';
+lrdist = 0;
+hBin = 0 
+h02;
+ReadInputData('traffic.avi');

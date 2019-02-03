@@ -1,0 +1,16 @@
+function iscolor = ReadInputData(filename)
+VidObj = VideoRead(filename);
+NumberOfFrames = round(VidObj.FrameRate*VidObj.Duration);
+Width = VidObj.Width;
+Height = VidObj.Height;
+tmpframe = readFrame(VidObj);
+if(length(size(tempframe)) > 2)
+    iscolor = 0;
+else
+    iscolor = 1;
+end
+sequence = cell(
+while hasFrame(VidObj)
+    
+end
+end
