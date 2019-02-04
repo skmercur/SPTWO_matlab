@@ -1,0 +1,12 @@
+function Dual_TVL1_optic_flow(I0,I1,height,width,fparams)
+size = height * width;
+const float tau = params.tau;     // time step
+    const float lambda = params.lambda;  // weight parameter for the data term
+    const float theta = params.theta;   // weight parameter for (u - v)²
+    const int   nscales = params.nscales; // number of scales
+    const float zfactor = params.zfactor; // factor for building the image piramid
+    const int   warps = params.warps;   // number of warpings per scale
+    const float epsilon = params.epsilon; // tolerance for numerical convergence
+    const bool  verbose = params.verbose;  // enable/disable the verbose mode
+    int iflagMedian = params.iflagMedian;
+end

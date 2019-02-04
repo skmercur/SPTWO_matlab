@@ -69,6 +69,7 @@ N = 1 + log(hypot(width, height)/16.0) / log(1/fparams.zfactor);
     iWin  = 2*str2double(options.oiwin{3})+1;
     iTemp = 2*str2double(options.oitemp{3})+1;
     iKnn = 0;
+    
    if(iscolor == 1)
        iKnn = 95;
    else
@@ -100,5 +101,5 @@ N = 1 + log(hypot(width, height)/16.0) / log(1/fparams.zfactor);
 
     useOracle=dparams.useOracle;
     % denoising function %
-    denoise_function(fparams, dparams, -1);
+    denoise_function(fparams, dparams, -1,nframes,useOracle,sequence);
  
