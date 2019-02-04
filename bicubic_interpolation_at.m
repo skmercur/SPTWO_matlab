@@ -1,4 +1,5 @@
 function output = bicubic_interpolation_at(input,uu,vv,nx,ny,border_out,BOUNDARY_CONDITION)
+output = 0.0;
 sx = 0;
 sy = 0;
 if(uu < 0)
@@ -11,7 +12,7 @@ if(vv < 0)
 else
     sy = 1;
 end
-out = 0;
+
 
 switch(BOUNDARY_CONDITION)
     case 0

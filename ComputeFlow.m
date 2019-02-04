@@ -13,6 +13,9 @@ if(useOracle)
 else
     gray2 = rgb2gray(iImages{jj});
      imshow(gray2);
+end
+[width,height] = size(gray1);
+     Dual_TVL1_optic_flow_multiscale(gray1,gray2,iImages{ii},iImages{jj},height,width,fparams);
      
 
 end
