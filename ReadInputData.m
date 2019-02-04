@@ -5,7 +5,7 @@ Width = VidObj.Width;
 Height = VidObj.Height;
 tmpframe = readFrame(VidObj);
 if(length(size(tmpframe)) > 2)
-    iscolor = 0;
+    iscolor = 1;
 else
     iscolor = 3;
 end
