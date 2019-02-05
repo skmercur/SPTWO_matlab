@@ -1,7 +1,7 @@
 function Iout = zoom_out(I,nx,ny,factor)
 
 for i = 1:  (nx * ny)-1
-    disp((nx * ny)-1-i )
+    disp((((nx*ny)-1) - i  )
         Is = I;
       
          

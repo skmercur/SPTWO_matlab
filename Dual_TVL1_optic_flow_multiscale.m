@@ -13,13 +13,15 @@ tau = params.tau;
     u2s = u2;
     nx  = width;
     ny  = height;
-    I0s = imgaussfilt(I0,0.8);
-    I1s = imgaussfilt(I1,0.8);
+    I0s = {imgaussfilt(I0,0.8)};
+    I1s = {imgaussfilt(I1,0.8)};
+    
     for s = 2: nscales - 1
         [nx(s),ny(s)]=  zoom_size(nx(s-1), ny(s-1),  zfactor);
         sizes = nx(s) * ny(s);
-         I0s(s) = zoom_out(I0s(s-1),  nx(s-1), ny(s-1), zfactor);
-          I1s(s) = zoom_out(I1s(s-1),  nx(s-1), ny(s-1), zfactor);
+       
+         I0s{s} = zoom_out(I0s{s-1},  nx(s-1), ny(s-1), zfactor)
+          I1s{s} = zoom_out(I1s{s-1},  nx(s-1), ny(s-1), zfactor)
     end
      for  i = 1: (nx(nscales-1) * ny(nscales-1))-1
         u1s(nscales-1,i) = 0.0;
