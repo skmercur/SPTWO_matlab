@@ -31,11 +31,12 @@ tau = params.tau;
             disp( "Scale "+ s+ ": "+nx(s)+" " +ny(s) + "\n" );
             
         end
-        s
+        
          Dual_TVL1_optic_flow(I0s{s}, I1s{s}, u1s(s), u2s(s), nx(s), ny(s),tau, lambda, theta, warps, epsilon, verbose, iflagMedian);
 
        
         if (~s) break;
+        end
 
        
 
@@ -49,9 +50,9 @@ tau = params.tau;
                u2s(s-1) = zoom_in(u2s(s), nx(s), ny(s), nx(s-1), ny(s-1));
        %not implemented yet%
 
-         end
+         
         
      end
-        
+     end
     
 end

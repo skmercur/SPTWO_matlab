@@ -3,7 +3,7 @@ dx = zeros(1,round(nx*ny*+nx));
 dy = zeros(1,round(nx*ny*+nx));
 nx = round(nx);
 ny = round(ny);
-size(input)
+size(input);
 for i = 1:ny-1
         for  j = 1:  nx-1
            k = round(i * nx + j);
