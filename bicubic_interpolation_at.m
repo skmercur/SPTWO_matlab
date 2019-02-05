@@ -12,7 +12,7 @@ if(vv < 0)
 else
     sy = 1;
 end
-
+out = 0;
 
 switch(BOUNDARY_CONDITION)
     case 0
