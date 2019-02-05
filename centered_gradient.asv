@@ -6,7 +6,7 @@ for i = 1:ny-1
            k = round(i * nx + j)
            nx+k
             dx(k) = 0.5*(input(k+1) - input(k-1));
-            dy(k) = 0.5*(input(k+round(nx)) - input(k-(round(nx))));
+            dy(k) = 0.5*(input(k+round(nx)) - input(k-(roundnx));
         
         end
 end

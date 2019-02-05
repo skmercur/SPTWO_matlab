@@ -31,8 +31,8 @@ tau = params.tau;
             disp( "Scale "+ s+ ": "+nx(s)+" " +ny(s) + "\n" );
             
         end
-        
-         Dual_TVL1_optic_flow(I0s(s), I1s(s), u1s(s), u2s(s), nx(s), ny(s),tau, lambda, theta, warps, epsilon, verbose, iflagMedian);
+        I0s{s}
+         Dual_TVL1_optic_flow(I0s{s}, I1s{s}, u1s(s), u2s(s), nx(s), ny(s),tau, lambda, theta, warps, epsilon, verbose, iflagMedian);
 
        
         if (~s) break;
