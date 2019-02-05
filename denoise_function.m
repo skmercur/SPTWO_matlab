@@ -1,6 +1,6 @@
 function denoise_function(fparams,dparams,iFrame,nframes,useOracle,iImages)
 iDTemp = (dparams.iTemp-1)/2;
-for ii=1:nframes-1
+parfor ii=1:nframes-1
         if ((iFrame == -1) || (ii == iFrame)) 
            
             jjmin = max(ii-iDTemp,1);

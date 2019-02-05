@@ -12,9 +12,9 @@ GRAD_IS_ZERO = 1E-10;
         p22(i) = 0.0;
   end
   for  warpings = 1: warps
-      I1w = bicubic_interpolation_warp(I1,  u1, u2, I1w,  nx, ny, 1,1);
-      I1wx =  bicubic_interpolation_warp(I1x, u1, u2, I1wx, nx, ny, 1,1);
-     I1wy = bicubic_interpolation_warp(I1y, u1, u2, I1wy, nx, ny, 1,1);
+      I1w = bicubic_interpolation_warp(I1,  u1, u2, 0,  nx, ny, 1);
+      I1wx =  bicubic_interpolation_warp(I1x, u1, u2, 0, nx, ny, 1);
+     I1wy = bicubic_interpolation_warp(I1y, u1, u2, 0, nx, ny, 1);
       for  i = 1:size 
            Ix2 = I1wx(i) * I1wx(i);
              Iy2 = I1wy(i) * I1wy(i);
@@ -60,8 +60,8 @@ GRAD_IS_ZERO = 1E-10;
                 v1(i) = u1(i) + d1;
                 v2(i) = u2(i) + d2;
             end
-           div_p1 =  divergence(p11, p12, div_p1, nx ,ny);
-           div_p2 = divergence(p21, p22, div_p2, nx ,ny);
+           div_p1 =  divergence(p11, p12, 0, nx ,ny);
+           div_p2 = divergence(p21, p22, 0, nx ,ny);
             error = 0.0;
 
 

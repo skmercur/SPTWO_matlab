@@ -7,9 +7,11 @@ for i = 1:ny
 
 
             for j = 1 : nx
-                p  = i * nx + j;
+                p  = round(i * nx + j);
+                if p <= length(u)
                 uu = (j + u(p));
                 vv =  (i + v(p));
+                end
 
                
                 output(p) = bicubic_interpolation_at(input,uu, vv, nx, ny, border_out);
