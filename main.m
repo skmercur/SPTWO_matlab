@@ -1,4 +1,3 @@
-clc
 clear
 close all
 PAR_DEFAULT_NPROC =  0;

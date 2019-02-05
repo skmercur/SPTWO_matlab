@@ -23,9 +23,10 @@ GRAD_IS_ZERO = 1E-10;
 
             
             grad(i) = (Ix2 + Iy2);
-
+             sizes = [length(u2),length(I1w),length(I1wx),length(u1),length(I1wy),length(I0)];
+if i <= min(sizes)
             rho_c(i) = (I1w(i) - I1wx(i) * u1(i)- I1wy(i) * u2(i) - I0(i));
-        
+end
       end
      n = 0;
        error = Inf;
@@ -34,8 +35,10 @@ GRAD_IS_ZERO = 1E-10;
            
 
             for  i = 1 : size
+                 sizes = [length(u2),length(I1w),length(I1wx),length(u1),length(I1wy),length(I0)];
+if i <= min(sizes)
                rho = rho_c(i)+ (I1wx(i) * u1(i) + I1wy(i) * u2(i));
-
+end
                d1 = 0.0;  d2 = 0.0;
 
                 if (rho < - l_t * grad(i)) 
@@ -57,9 +60,12 @@ GRAD_IS_ZERO = 1E-10;
                         
                     end
                 end
-
+if(i <= length(u1))
                 v1(i) = u1(i) + d1;
+end
+if(i <= length(u2))
                 v2(i) = u2(i) + d2;
+end
             end
            div_p1 =  divergence(p11, p12, 0, nx ,ny);
            div_p2 = divergence(p21, p22, 0, nx ,ny);
@@ -67,6 +73,7 @@ GRAD_IS_ZERO = 1E-10;
 
 
             for  i = 1:  size-1
+                if(i <= length(u1))
                 u1k = u1(i);
                 u2k = u2(i);
 
@@ -74,14 +81,17 @@ GRAD_IS_ZERO = 1E-10;
                 u2(i) = v2(i) + theta * div_p2(i);
 
                 error = error + (u1(i) - u1k) * (u1(i) - u1k) +(u2(i) - u2k) * (u2(i) - u2k);
+                end
             end
             error =  error / size;
-           [u1x, u1y ] = forward_gradient(u1, u1x, u1y, nx ,ny);
-           [u2x, u2y] =  forward_gradient(u2, u2x, u2y, nx ,ny);
-          for (i = 1: i < size-1) 
+           [u1x, u1y ] = forward_gradient(u1, 0, 0, nx ,ny);
+           [u2x, u2y] =  forward_gradient(u2, 0, 0, nx ,ny);
+          for (i = 1:  size-1) 
                  taut = tau / theta;
+                 if i < length(u1x)
                 g1   = hypot(u1x(i), u1y(i));
                 g2   = hypot(u2x(i), u2y(i));
+                 end
                ng1  = 1.0 + taut * g1;
                  ng2  = 1.0 + taut * g2;
 

@@ -6,7 +6,7 @@ ny = round(ny);
 size(input)
 for i = 1:ny-1
         for  j = 1:  nx-1
-           k = round(i * nx + j)
+           k = round(i * nx + j);
            if(nx+k < length(input))
             dx(k) = 0.5*(input(k+1) - input(k-1));
             dy(k) = 0.5*(input(k+nx) - input(k-nx));

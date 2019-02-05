@@ -26,12 +26,12 @@ tau = params.tau;
      for  i = 1: (nx(nscales-1) * ny(nscales-1))-1
         u1s(nscales-1,i) = 0.0;
         u2s(nscales-1,i) = 0.0;
-         for s = nscales-1:-1: 0
+         for s = nscales-1:-1: 1
         if (verbose)
             disp( "Scale "+ s+ ": "+nx(s)+" " +ny(s) + "\n" );
             
         end
-        
+        s
          Dual_TVL1_optic_flow(I0s{s}, I1s{s}, u1s(s), u2s(s), nx(s), ny(s),tau, lambda, theta, warps, epsilon, verbose, iflagMedian);
 
        
