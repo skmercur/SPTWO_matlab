@@ -11,11 +11,13 @@ GRAD_IS_ZERO = 1E-10;
         p21(i) =0.0;
         p22(i) = 0.0;
   end
+  rho_c = zeros(1,size);
+  grad = zeros(1,size);
   for  warpings = 1: warps
       I1w = bicubic_interpolation_warp(I1,  u1, u2, 0,  nx, ny, 1);
       I1wx =  bicubic_interpolation_warp(I1x, u1, u2, 0, nx, ny, 1);
      I1wy = bicubic_interpolation_warp(I1y, u1, u2, 0, nx, ny, 1);
-      for  i = 1:size-1
+      for  i = 1:size
            Ix2 = I1wx(i) * I1wx(i);
              Iy2 = I1wy(i) * I1wy(i);
 
@@ -31,7 +33,7 @@ GRAD_IS_ZERO = 1E-10;
             n = n +1;
            
 
-            for  i = 1 : size-1
+            for  i = 1 : size
                rho = rho_c(i)+ (I1wx(i) * u1(i) + I1wy(i) * u2(i));
 
                d1 = 0.0;  d2 = 0.0;
@@ -64,7 +66,7 @@ GRAD_IS_ZERO = 1E-10;
             error = 0.0;
 
 
-            for  i = 1:  size-1)
+            for  i = 1:  size-1
                 u1k = u1(i);
                 u2k = u2(i);
 
