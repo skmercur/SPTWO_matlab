@@ -14,7 +14,7 @@ for i = 1:ny
                 end
 
                
-                output(p) = bicubic_interpolation_at(input,uu, vv, nx, ny, border_out);
+                output(p) = bicubic_interpolation_at(input,uu, vv, nx, ny, border_out,1);
             end
 end
 end
