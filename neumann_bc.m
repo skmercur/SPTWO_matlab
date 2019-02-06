@@ -1,5 +1,5 @@
 function [out,x] =  neumann_bc(x,  nx)
-
+out =0;
     if(x < 0) 
         x = 0;
         out = 1;

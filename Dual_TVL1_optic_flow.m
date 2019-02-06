@@ -1,6 +1,10 @@
 function Dual_TVL1_optic_flow( I0,I1,     u1, u2, nx, ny,     tau,    lambda, theta,   warps,  epsilon,verbose,iflagMedian)
 size = round(nx * ny);
 l_t = lambda * theta;
+if isa(u1,'cell') && isa(u2,'cell')
+   u1 = cell2mat(u1);
+   u2 = cell2mat(u2);
+end
 MAX_ITERATIONS= 300;
 PRESMOOTHING_SIGMA =0.8;
 GRAD_IS_ZERO = 1E-10;
@@ -38,7 +42,7 @@ end
                  sizes = [length(u2),length(I1w),length(I1wx),length(u1),length(I1wy),length(I0)];
 if i <= min(sizes)
                rho = rho_c(i)+ (I1wx(i) * u1(i) + I1wy(i) * u2(i));
-end
+
                d1 = 0.0;  d2 = 0.0;
 
                 if (rho < - l_t * grad(i)) 
@@ -60,6 +64,7 @@ end
                         
                     end
                 end
+end
 if(i <= length(u1))
                 v1(i) = u1(i) + d1;
 end

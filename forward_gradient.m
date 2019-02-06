@@ -28,9 +28,14 @@ end
  
     for  i = 1: ny-1 
       p = i * nx-1;
-if(p <= length(f))
-        fx(p) = 0;
-        fy(p) = (fp+nx) - f(p);
+if((p <= length(f)) && (p > 0))
+    if(p <= length(fx) && p <= length(fy))
+        
+        fx(round(p)) = 0;
+        if( p+nx <= length(f))
+        fy(round(p)) = (f(round(p+nx)) - f(round(p)));
+        end
+    end
     end
     end
     fx(round(ny * nx - 1)) = 0;

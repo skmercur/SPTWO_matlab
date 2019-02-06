@@ -1,4 +1,5 @@
 function ComputeFlow(iImages,ii,  jj,fparams,useOracle)
+tic
 if(useOracle)
     aImages = iImages; 
    gray1 = rgb2gray(aImages{ii});
@@ -18,5 +19,5 @@ end
 [width,height] = size(gray1);
      Dual_TVL1_optic_flow_multiscale(gray1,gray2,iImages{ii},iImages{jj},height,width,fparams);
      
-
+toc
 end
